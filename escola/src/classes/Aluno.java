@@ -56,4 +56,9 @@ public class Aluno {
     public void setEndereco(String rua, String numeroCasa, String bairro, String cep, String cidade){
         this.endereco = new Endereco(rua, numeroCasa, bairro, cep, cidade);
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.nome;
+    }
 }
