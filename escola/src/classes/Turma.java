@@ -31,7 +31,7 @@ public class Turma {
 
     public void mostrarAlunos(){
         for(Aluno aluno : this.alunos){
-            System.out.println(aluno.getNome());
+            System.out.println(aluno);
         }
     }
 
