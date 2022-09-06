@@ -1,8 +1,7 @@
 package model;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class Compra {
     private Date data;
@@ -56,4 +55,23 @@ public class Compra {
         return valorTotal; //totalCompra;
     }
 
+    public void mostraCompra() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        double valorTotal = 0;
+
+        System.out.println("********** COMPRA **********");
+        System.out.println("Data: " + formato.format(data));
+        System.out.println("Cliente: " + cliente.getNome());
+        System.out.println("********* PRODUTOS *********");
+        System.out.printf("%1s%10s%15s\n", "Cód", "Descrição", "Valor (R$)");
+        for (Produto produto : this.produtos){
+            System.out.printf("%-4s%-15s%.2f\n", produto.getCod(), produto.getNome(), produto.getValor());
+            valorTotal += produto.getValor();
+        }
+        System.out.println("----------------------------");
+        System.out.printf("TOTAL DA COMPRA: R$%.2f\n", valorTotal);
+        System.out.println("----------------------------");
+
+    }
 }
