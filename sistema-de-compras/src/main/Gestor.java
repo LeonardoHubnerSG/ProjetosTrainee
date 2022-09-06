@@ -5,6 +5,7 @@ import model.Compra;
 import model.Produto;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -56,15 +57,64 @@ public class Gestor {
         //System.out.println(compra.getTotalCompra());
         //compra.getListaProdutos();
 
-        ComparadorProdutos comparadorPorValor = new ComparadorProdutos();
+        /*ComparadorValorProdutos comparadorPorValor = new ComparadorValorProdutos();
 
         compra.getListaProdutos();
         compra.produtos.sort(comparadorPorValor);
         compra.getListaProdutos();
+
+        ComparadorDescricaoProdutos comparadorPorDescricao = new ComparadorDescricaoProdutos();
+
+        compra.getListaProdutos();
+        compra.produtos.sort(comparadorPorDescricao);
+        compra.getListaProdutos();
+        */
+
+        compra.getListaProdutos();
+        compra.produtos.sort(null); //Ordena pela ordem natural definida na definição da classe Produto (evitar fazer dessa forma)
+        compra.getListaProdutos();
+
+        Collections.sort(compra.produtos);
+        compra.getListaProdutos();
+        Collections.reverse(compra.produtos);
+        compra.getListaProdutos();
+
+        compra.produtos.sort(new Comparator<Produto>(){ //criando classe anônima
+                                    @Override
+                                    public int compare(Produto produto1, Produto produto2) {
+                                        return Double.compare(produto1.getValor(), produto2.getValor());
+                                    }
+                                }
+                            );
+
+        compra.getListaProdutos();
+
+        Comparator<Produto> comparador = new Comparator<Produto>(){ //criando classe anônima
+                                                @Override
+                                                public int compare(Produto produto1, Produto produto2) {
+                                                    String nomeProduto1 = produto1.getNome();
+                                                    String nomeProduto2 = produto2.getNome();
+                                                    return nomeProduto1.compareTo(nomeProduto2);
+                                                }
+                                        };
+        compra.produtos.sort(comparador);
+        compra.getListaProdutos();
+
     }
 }
 
-class ComparadorProdutos implements Comparator<Produto>{
+class ComparadorDescricaoProdutos implements Comparator<Produto>{
+    @Override
+    public int compare(Produto produto1, Produto produto2) {
+        String nomeProduto1 = produto1.getNome();
+        String nomeProduto2 = produto2.getNome();
+        return nomeProduto1.compareTo(nomeProduto2);
+
+        //return produto1.getNome().compareTo(produto2.getNome());
+    }
+}
+
+class ComparadorValorProdutos implements Comparator<Produto>{
 
     @Override
     public int compare(Produto produto1, Produto produto2) {
