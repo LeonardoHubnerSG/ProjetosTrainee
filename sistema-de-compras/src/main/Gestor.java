@@ -79,6 +79,7 @@ public class Gestor {
         Collections.reverse(compra.produtos);
         compra.getListaProdutos();
 
+        /*
         compra.produtos.sort(new Comparator<Produto>(){ //criando classe anônima
                                     @Override
                                     public int compare(Produto produto1, Produto produto2) {
@@ -86,8 +87,6 @@ public class Gestor {
                                     }
                                 }
                             );
-
-        compra.getListaProdutos();
 
         Comparator<Produto> comparador = new Comparator<Produto>(){ //criando classe anônima
                                                 @Override
@@ -99,6 +98,13 @@ public class Gestor {
                                         };
         compra.produtos.sort(comparador);
         compra.getListaProdutos();
+         */
+
+        compra.produtos.sort((prod1, prod2) -> Double.compare(produto1.getValor(), produto2.getValor()));
+
+        compra.getListaProdutos();
+
+        compra.produtos.forEach((produtos) -> System.out.println(produtos + " OI"));
 
     }
 }
