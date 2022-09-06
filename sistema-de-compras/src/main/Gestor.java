@@ -104,7 +104,7 @@ public class Gestor {
 
         compra.getListaProdutos();
 
-        compra.produtos.forEach((produtos) -> System.out.println(produtos + " OI"));
+        compra.produtos.forEach((produtos) -> System.out.println(produtos + "OI"));
 
     }
 }
