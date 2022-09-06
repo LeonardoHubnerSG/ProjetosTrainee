@@ -5,6 +5,7 @@ import model.Compra;
 import model.Produto;
 
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 
 public class Gestor {
@@ -27,7 +28,7 @@ public class Gestor {
         Produto produto3 = new Produto();
         produto3.setCod(3);
         produto3.setNome("Borracha");
-        produto3.setValor(2.0);
+        produto3.setValor(8.0);
 
         Compra compra = new Compra();
         compra.setCliente(cliente);
@@ -55,5 +56,24 @@ public class Gestor {
         //System.out.println(compra.getTotalCompra());
         //compra.getListaProdutos();
 
+        ComparadorProdutos comparadorPorValor = new ComparadorProdutos();
+
+        compra.getListaProdutos();
+        compra.produtos.sort(comparadorPorValor);
+        compra.getListaProdutos();
+    }
+}
+
+class ComparadorProdutos implements Comparator<Produto>{
+
+    @Override
+    public int compare(Produto produto1, Produto produto2) {
+        if(produto1.getValor() < produto2.getValor()){
+            return -1;
+        }
+        if(produto1.getValor() > produto2.getValor()){
+            return 1;
+        }
+        return 0;
     }
 }
