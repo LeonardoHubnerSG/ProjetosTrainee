@@ -47,6 +47,9 @@ public class Gestor {
         System.out.println();
         System.out.println("Valor total da compra: " + compra.getTotalCompra());
         System.out.println("Data da Compra: " + compra.getData());
+        System.out.println();
+
+        compra.mostraCompra();
 
         //compra.removeProdutos(1);
         //System.out.println(compra.getTotalCompra());
