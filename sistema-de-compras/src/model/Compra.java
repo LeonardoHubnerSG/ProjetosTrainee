@@ -6,7 +6,7 @@ import java.util.*;
 public class Compra {
     private Date data;
     private Cliente cliente;
-    private ArrayList<Produto> produtos;
+    public ArrayList<Produto> produtos;
     private double totalCompra = 0;
 
     public Compra(){

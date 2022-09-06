@@ -1,6 +1,6 @@
 package model;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
     private int cod;
     private String nome;
     private double valor;
@@ -27,6 +27,11 @@ public class Produto {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    @Override
+    public int compareTo(Produto outroProduto) {
+        return Double.compare(this.valor, outroProduto.valor);
     }
 
     @Override
