@@ -131,5 +131,7 @@ class ComparadorValorProdutos implements Comparator<Produto>{
             return 1;
         }
         return 0;
+
+        //return (int) (produto1.getValor() - produto2.getValor());
     }
 }
