@@ -7,7 +7,7 @@ public class TesteCopiarArquivo {
     public static void main(String[] args) throws IOException {
 
         //Socket soquete = new Socket();
-
+        FileWriter df = null;
         InputStream fis = System.in;  //soquete.getInputStream(); //new FileInputStream("Lorem.txt");
         Reader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);
