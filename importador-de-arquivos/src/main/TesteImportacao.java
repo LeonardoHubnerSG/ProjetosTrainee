@@ -4,7 +4,7 @@ import model.ImportacaoReceita;
 
 import java.io.FileNotFoundException;
 
-public class TesteLeituraArquivo {
+public class TesteImportacao {
     public static void main(String[] args) throws FileNotFoundException {
         //System.out.println("Deseja realizar a importação dos arquivos?");
 

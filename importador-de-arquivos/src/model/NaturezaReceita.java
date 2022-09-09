@@ -15,56 +15,25 @@ public class NaturezaReceita {
     private String aliqCofin = "";
 
     public NaturezaReceita(String linha) {
-        Scanner linhaScanner = new Scanner(linha);
-        linhaScanner.useLocale(Locale.US);
-        linhaScanner.useDelimiter("\\|");
+        String[] dadosSeparados = linha.split("\\|",10);
 
-        int contador = 0;
+         this.codigo    = dadosSeparados[0];
+         this.descProd  = dadosSeparados[1];
+         this.dtIni     = dadosSeparados[2];
+         this.dtFim     = dadosSeparados[3];
+         this.ncm       = dadosSeparados[4];
+         this.ncmEX     = dadosSeparados[5];
+         this.exIPI     = dadosSeparados[6];
 
-        while (linhaScanner.hasNext()) {
-            contador += 1;
+         if (dadosSeparados.length > 7) {
+             this.aliqPIS = dadosSeparados[7];
+             this.aliqCofin = dadosSeparados[8];
+         }
 
-            switch(contador){
-                case 1:{
-                    this.codigo = linhaScanner.next();
-                    break;
-                }
-                case 2:{
-                    this.descProd = linhaScanner.next();
-                    break;
-                }
-                case 3:{
-                    this.dtIni = linhaScanner.next();
-                    break;
-                }
-                case 4:{
-                    this.dtFim = linhaScanner.next();
-                    break;
-                }
-                case 5:{
-                    this.ncm = linhaScanner.next();
-                    break;
-                }
-                case 6:{
-                    this.ncmEX = linhaScanner.next();
-                    break;
-                }
-                case 7:{
-                    this.exIPI = linhaScanner.next();
-                    break;
-                }
-                case 8:{
-                    this.aliqPIS = linhaScanner.next();
-                    break;
-                }
-                case 9:{
-                    this.aliqCofin = linhaScanner.next();
-                    break;
-                }
-            }
-        }
-
-        linhaScanner.close();
+        //Scanner linhaScanner = new Scanner(linha);
+        //linhaScanner.useLocale(Locale.US);
+        //linhaScanner.useDelimiter("\\|");
+        //linhaScanner.close();
 
         /*
         if (linhaScanner.hasNext()) this.codigo = linhaScanner.next();
@@ -77,7 +46,6 @@ public class NaturezaReceita {
         if (linhaScanner.hasNext()) this.aliqPIS = linhaScanner.next();
         if (linhaScanner.hasNext()) this.aliqCofin = linhaScanner.next();
         */
-
     }
 
     @Override
