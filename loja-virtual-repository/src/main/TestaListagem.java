@@ -7,7 +7,8 @@ import java.sql.*;
 
 public class TestaListagem {
     public static void main(String[] args) throws SQLException {
-        Connection connection = ConnectionFactory.obterConexao();
+        ConnectionFactory factory = new ConnectionFactory();
+        Connection connection = factory.obterConexao();
         /*
         Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/loja_virtual",
                                                            "postgres",
@@ -15,7 +16,7 @@ public class TestaListagem {
         */
 
         //Statement statement = connection.createStatement();
-        Statement statement = ConnectionFactory.obterConexao().createStatement();
+        Statement statement = factory.obterConexao().createStatement();
 
         //Esse método "execute" é NECESSARIO para depois conseguir realizar os gets da tabela (ele é como se fosse o CTRL+ENTER do dbeaver, ele é que executa o comando sql ali)
         System.out.println("Está trazendo algo: " + statement.execute("SELECT ID, NOME, DESCRICAO FROM PRODUTO") + "\n");
@@ -23,12 +24,13 @@ public class TestaListagem {
 
         ResultSet resultSet = statement.getResultSet();
 
-        Produto produto = new Produto();
+        Produto produto;
 
         while(resultSet.next()){
+            produto = new Produto(resultSet.getString("nome"),
+                                  resultSet.getString("descricao"));
+
             produto.setId(resultSet.getInt("id"));
-            produto.setNome(resultSet.getString("nome"));
-            produto.setDescricao(resultSet.getString("descricao"));
             System.out.println(produto);
         }
 

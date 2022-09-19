@@ -1,3 +1,4 @@
+/*
 package main;
 
 import conexao.ConnectionFactory;
@@ -17,7 +18,8 @@ public class TestaExclusao {
         ResultSet resultSet = statement.getGeneratedKeys();
         Produto produto = new Produto();
 
-        /*
+        */
+/*
         while(resultSet.next()){
             System.out.println("Registros deletados:");
             produto.setId(resultSet.getInt(1));
@@ -35,6 +37,8 @@ public class TestaExclusao {
             System.out.println(resultSet.getString("nome"));
             System.out.println(resultSet.getString("descricao"));
         }
-        */
+        *//*
+
     }
 }
+*/

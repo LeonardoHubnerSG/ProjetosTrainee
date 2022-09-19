@@ -5,16 +5,27 @@ public class Produto {
     private String nome;
     private String descricao;
 
+    public Produto(int id, String nome, String descricao){
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public Produto(String nome, String descricao){
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public String getDescricao() {
+        return descricao;
     }
 
     @Override
