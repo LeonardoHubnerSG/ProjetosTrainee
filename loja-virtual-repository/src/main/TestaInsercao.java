@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+/*
 
 public class TestaInsercao {
     public static void main(String[] args) throws SQLException {
@@ -31,7 +32,8 @@ public class TestaInsercao {
         System.out.println(resultSet.getInt(1));
     }
 
-    /*
+    */
+/*
     public static void main(String[] args) throws SQLException {
         Statement statement = ConnectionFactory.obterConexao().createStatement();
 
@@ -48,8 +50,10 @@ public class TestaInsercao {
             System.out.println(produto.toString());
         }
     }
-    */
+    *//*
+
 }
 
 //Statement
 //ResultSet
+*/

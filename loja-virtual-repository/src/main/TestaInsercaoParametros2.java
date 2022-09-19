@@ -1,3 +1,4 @@
+/*
 package main;
 
 import conexao.ConnectionFactory;
@@ -10,10 +11,12 @@ public class TestaInsercaoParametros2 {
         String nome = "Banana";
         String descricao = "Banana Prata";
 
-        /*
+        */
+/*
         PreparedStatement preparedStatement =
                 ConnectionFactory.obterConexao().prepareStatement("INSERT INTO produto (nome,descricao) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
-        */
+        *//*
+
 
         try(Connection connection = ConnectionFactory.obterConexao()) {
             connection.setAutoCommit(false);
@@ -47,3 +50,4 @@ public class TestaInsercaoParametros2 {
         }
     }
 }
+*/
