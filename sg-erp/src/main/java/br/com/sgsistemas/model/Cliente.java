@@ -16,11 +16,36 @@ public class Cliente {
     @ManyToOne
     private Endereco endereco;
 
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String cpf, String dataNascimento) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
     public Cliente(String nome, String cpf, String dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento =  LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.endereco = endereco;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getNome() {
@@ -53,5 +78,15 @@ public class Cliente {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "\n" +
+               "CPF : " + cpf + "\n" +
+               "Data Nascimento: " + dataNascimento + "\n" +
+               "Endereco: " + endereco.getLogradouro() + " n°" + endereco.getNumero() + "\n" +
+               "Cidade: " + endereco.getCidade().getNome() + "\n" +
+               "Estado: " + endereco.getCidade().getUf().getDescricao();
     }
 }
