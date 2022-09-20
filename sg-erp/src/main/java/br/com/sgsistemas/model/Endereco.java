@@ -14,6 +14,8 @@ public class Endereco {
     @ManyToOne
     private Cidade cidade;
 
+    public Endereco() {
+    }
     public Endereco(String logradouro, String numero, String bairro, Cidade cidade) {
         this.logradouro = logradouro;
         this.numero = numero;

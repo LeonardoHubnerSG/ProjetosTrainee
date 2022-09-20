@@ -14,4 +14,21 @@ public class CidadeDAO {
     public void cadastrar(Cidade cidade){
         this.em.persist(cidade);
     }
+
+    public void atualizar(Cidade cidade){
+        this.em.persist(cidade);
+    }
+
+    public void remover(Cidade cidade){
+        cidade = em.merge(cidade);
+        this.em.remove(cidade);
+    }
+
+    public void limparEntidade(){
+        String jpql = "DELETE FROM Cidade";
+        em.getTransaction().begin();
+        this.em.createQuery(jpql).executeUpdate();
+        em.getTransaction().commit();
+        em.clear();
+    }
 }

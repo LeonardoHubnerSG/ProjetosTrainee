@@ -9,6 +9,8 @@ public class UF {
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String sigla;
     private String descricao;
+    public UF() {
+    }
 
     public UF(String sigla, String descricao) {
         this.sigla = sigla;

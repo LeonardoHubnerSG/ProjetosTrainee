@@ -11,6 +11,8 @@ public class Cidade {
     private String nome;
     @ManyToOne
     private UF uf;
+    public Cidade() {
+    }
 
     public Cidade(String nome, UF uf) {
         this.nome = nome;
