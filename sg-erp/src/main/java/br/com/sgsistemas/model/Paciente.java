@@ -9,6 +9,11 @@ public class Paciente extends Pessoa {
     public Paciente() {
     }
 
+    public Paciente(String nome, String cpf) {
+        super.setNome(nome);
+        this.cpf = cpf;
+    }
+
     public String getCpf() {
         return cpf;
     }

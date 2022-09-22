@@ -1,14 +1,17 @@
 package br.com.sgsistemas.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS /*.SINGLE_TABLE*/)
+public abstract class Pessoa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    public Pessoa() {
+    }
 
     public Pessoa(String nome) {
         this.nome = nome;
